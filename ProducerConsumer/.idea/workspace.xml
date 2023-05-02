@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99989e2c-357a-4783-9ad9-184bdd8e35cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../iss23Material/LectureBologna2023.html" beforeDir="false" afterPath="$PROJECT_DIR$/../iss23Material/LectureBologna2023.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iss23Material/html/Appl1Actors23.html" beforeDir="false" afterPath="$PROJECT_DIR$/../iss23Material/html/Appl1Actors23.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../iss23Material/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../iss23Material/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../unibolibs/actors23-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../unibolibs/actors23-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +19,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ProducerConsumer" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -37,15 +51,13 @@
     <option name="showMembers" value="true" />
     <option name="showModules" value="false" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Utente/Documents/Appl1Actors23&quot;
+  }
+}</component>
   <component name="RunManager" selected="Application.MainProdConsStream">
     <configuration name="MainProdConsFsm23All" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProdConsFsm23.MainProdConsFsm23All" />
@@ -101,6 +113,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
