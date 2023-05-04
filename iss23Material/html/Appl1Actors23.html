@@ -20,7 +20,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Appl1ActorsFsm23" href="Appl1ActorsFsm23.html" />
+    <link rel="next" title="Annotazioni" href="Annotazioni.html" />
     <link rel="prev" title="SistemiActors23" href="SistemiActors23.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -30,7 +30,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Appl1ActorsFsm23.html" title="Appl1ActorsFsm23"
+          <a href="Annotazioni.html" title="Annotazioni"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="SistemiActors23.html" title="SistemiActors23"
@@ -198,10 +198,16 @@ e genera i comandi  <span class="brown">stop/resume</span>.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Poichè il <span class="blue">sonar</span> potrebbe emettere una sequenza di più eventi in serie, occorre</p>
 <p><span class="slidekp">KP-analisi: Evitare più stop/resume</span></p>
-<p>Osserviamo inoltre che un utente umano ptrebbe premere i pulsanti della <span class="blue">console</span> in una sequenza errata.</p>
+<p>E’ molto probabile che il <span class="blue">sonar</span>  emetta una sequenza di più eventi in serie. Occorre fare in modo che
+solo il primo evento della serie innsechi uno <em>stop</em> (con relativo successivo <em>resume</em>).</p>
+<p><span class="slidekp">KP-analisi: Multi-console problem</span></p>
+<p>Trasformare un evento del <span class="blue">sonar</span> in un comando <em>stop</em> seguito poi da una <em>resume</em>, equivale a pensare che l’applicazione
+possa essere comandata da due <span class="blue">console</span>.
+Per evitare interferenze, occorre che la console di utente venga <span class="remark">disabilitata/ignorata</span> quando si manifesta
+uno <em>stop</em> dovuto al <span class="blue">sonar</span>.</p>
 <p><span class="slidekp">KP-analisi: Click fuori fase sui pulsanti</span></p>
+<p>Un utente umano ptrebbe premere i pulsanti della <span class="blue">console</span> in una sequenza errata.</p>
 <table class="colwidths-given docutils align-default" style="width: 100%">
 <colgroup>
 <col style="width: 40%" />
@@ -307,7 +313,7 @@ necessarie.</p>
  <span class="nd">@Override</span>
  <span class="n">protected</span> <span class="n">void</span> <span class="n">elabMsg</span><span class="p">(</span><span class="n">IApplMessage</span> <span class="n">inputmsg</span><span class="p">)</span> <span class="n">throws</span> <span class="ne">Exception</span> <span class="p">{</span>
   <span class="o">...</span>
-  <span class="o">/</span><span class="n">GESTRIONE</span> <span class="n">DELEGATA</span>
+  <span class="o">//</span><span class="n">GESTIONE</span> <span class="n">DELEGATA</span>
   <span class="k">if</span><span class="p">(</span> <span class="n">inputmsg</span><span class="o">.</span><span class="n">isRequest</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">inputmsg</span><span class="o">.</span><span class="n">msgId</span><span class="p">()</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s2">&quot;getpath&quot;</span><span class="p">)){</span><span class="o">/</span>
     <span class="n">IApplMessage</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">CommUtils</span><span class="o">.</span><span class="n">buildReply</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span><span class="s2">&quot;getpathanswer&quot;</span><span class="p">,</span>
                  <span class="s2">&quot;&#39;&quot;</span><span class="o">+</span><span class="n">getCurrentPath</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="n">inputmsg</span><span class="o">.</span><span class="n">msgSender</span><span class="p">());</span>
@@ -334,6 +340,22 @@ un evento.</p>
 </section>
 <section id="appl1actors23-support-vrobothlmovesactors23">
 <h3>appl1Actors23.support.VrobotHLMovesActors23<a class="headerlink" href="#appl1actors23-support-vrobothlmovesactors23" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default" style="width: 100%">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Il nuovo supporto comunica in modo asincrono con il <a class="reference internal" href="VirtualRobot23.html#virtualrobot23"><span class="std std-ref">VirtualRobot</span></a> e
+traduce le informazioni ricevute da WEnv in messaggi ad <span class="blue">appl</span>.</p>
+<p>Quando riceve informazioni realative al <span class="blue">sonar</span>, genera un evento locale che viene
+poi elaborato da <span class="blue">obspath</span>.</p>
+</td>
+<td><a class="reference internal image-reference" href="_images/VrobotHLMovesActors23.png"><img alt="_images/VrobotHLMovesActors23.png" class="align-center" src="_images/VrobotHLMovesActors23.png" style="width: 100%;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="slidekp">KP-project: è bene generare messaggi con msgId diversi?</span></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">VrobotHLMovesActors23</span> <span class="n">extends</span> <span class="n">ApplAbstractObserver</span>
                                    <span class="n">implements</span> <span class="n">IVrobotMovesAsynch</span> <span class="p">{</span>
@@ -349,7 +371,8 @@ un evento.</p>
         <span class="n">IApplMessage</span> <span class="n">sonarEvent</span> <span class="o">=</span> <span class="n">CommUtils</span><span class="o">.</span><span class="n">buildEvent</span><span class="p">(</span>
               <span class="s2">&quot;vrhlsprt&quot;</span><span class="p">,</span><span class="s2">&quot;sonardata&quot;</span><span class="p">,</span><span class="s2">&quot;&#39;&quot;</span><span class="o">+</span><span class="s2">&quot;sonar(&quot;</span> <span class="o">+</span><span class="n">d</span> <span class="o">+</span> <span class="s2">&quot; )&quot;</span><span class="o">+</span><span class="s2">&quot;&#39;&quot;</span><span class="p">);</span>
         <span class="o">//</span><span class="n">msg</span><span class="p">(</span><span class="n">sonardata</span><span class="p">,</span><span class="n">event</span><span class="p">,</span><span class="n">vrhlsprt</span><span class="p">,</span><span class="n">ANY</span><span class="p">,</span><span class="s1">&#39;sonar( D )&#39;</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
-        <span class="n">Actor23Utils</span><span class="o">.</span><span class="n">emitLocalEvent</span><span class="p">(</span> <span class="n">sonarEvent</span><span class="p">,</span><span class="n">appl</span> <span class="p">);</span>
+        <span class="n">Actor23Utils</span><span class="o">.</span><span class="n">emitLocalEvent</span><span class="p">(</span> <span class="n">sonarEvent</span><span class="p">,</span><span class="n">appl</span> <span class="p">);</span> <span class="o">//</span><span class="n">elaborato</span> <span class="n">da</span> <span class="n">sonarobserver</span>
+        <span class="o">//</span><span class="n">Questo</span> <span class="s1">&#39;alieno&#39;</span> <span class="n">usa</span> <span class="n">l</span><span class="s1">&#39;utility per indurre appl ad emettere l&#39;</span><span class="n">evento</span>
       <span class="p">}</span>
       <span class="k">if</span> <span class="p">(</span><span class="n">jsonObj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;endmove&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
        <span class="o">...</span>
@@ -449,12 +472,6 @@ protected String sonarDistance = null;
           return;
       }
       if( payload.startsWith(&quot;stepdone&quot;)){
-        if( sonarEvent ){
-          //tolgo il robot dal sonar
-          Appl1StateObject.getVr().step( Appl1StateObject.getStepTime() );
-          CommUtils.delay(2000);  //Da REQUISITO
-          sonarEvent = false;
-        }
           if( Appl1StateObject.getIsRunning() &amp;&amp; ! Appl1StateObject.getStopped()  )
             stepok.handle(payload);
           return;
@@ -530,6 +547,12 @@ protected String sonarDistance = null;
   <span class="o">%%</span><span class="n">qactor</span><span class="p">(</span> <span class="n">console</span><span class="p">,</span> <span class="n">ctxall</span><span class="p">,</span> <span class="s2">&quot;appl1Actors23.CmdConsoleActor23&quot;</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
 </div>
+<p>Prossimi passi:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Annotazioni.html#annotazioni"><span class="std std-ref">Annotazioni</span></a></p></li>
+<li><p><a class="reference internal" href="Actors23FSM.html#actors23fsm"><span class="std std-ref">Actors23FSM</span></a></p></li>
+<li><p><a class="reference internal" href="Appl1ActorsFsm23.html#appl1actorsfsm23"><span class="std std-ref">Appl1ActorsFsm23</span></a></p></li>
+</ul>
 </section>
 </section>
 
@@ -577,8 +600,8 @@ protected String sonarDistance = null;
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="Appl1ActorsFsm23.html"
-                          title="next chapter">Appl1ActorsFsm23</a></p>
+    <p class="topless"><a href="Annotazioni.html"
+                          title="next chapter">Annotazioni</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -608,7 +631,7 @@ protected String sonarDistance = null;
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Appl1ActorsFsm23.html" title="Appl1ActorsFsm23"
+          <a href="Annotazioni.html" title="Annotazioni"
              >next</a> |</li>
         <li class="right" >
           <a href="SistemiActors23.html" title="SistemiActors23"
