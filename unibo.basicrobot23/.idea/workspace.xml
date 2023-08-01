@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c3c3110-410d-4cbf-9548-c0723381ed26" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/../iss23Material/Registro2023.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iss23Material/Registro2023_files/print.css" afterDir="false" />
@@ -43,6 +44,9 @@
       <change beforePath="$PROJECT_DIR$/basicrobot23.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/basicrobot23.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basicrobotConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/basicrobotConfig.json" afterDir="false" />
 >>>>>>> 4e7e65892733d322b172ad76816254e08bfc4b5e
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +66,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="unibo.basicrobot23" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -208,7 +217,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
